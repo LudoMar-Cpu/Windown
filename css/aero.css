@@ -1,0 +1,371 @@
+/* Widown 7 Aero Glass Theme Styles */
+
+/* Aero Window Frame */
+.widown-window.aero-glass {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background: rgba(235, 243, 253, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 8px 8px 4px 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+    overflow: hidden;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.widown-window.minimized {
+    transform: scale(0.7) translateY(200px);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.widown-window.maximized {
+    border-radius: 0;
+    border: none;
+}
+
+.window-titlebar {
+    height: 32px;
+    padding: 0 8px 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(200, 220, 245, 0.3) 50%, rgba(180, 210, 240, 0.2) 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    cursor: default;
+    position: relative;
+}
+
+.window-titlebar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.05) 100%);
+    pointer-events: none;
+}
+
+.window-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1e293b;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.window-icon {
+    font-size: 16px;
+}
+
+.window-controls {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 2px;
+}
+
+.win-btn {
+    width: 28px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 3px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(220, 230, 245, 0.4) 100%);
+    font-size: 10px;
+    font-weight: bold;
+    color: #334155;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    transition: all 0.15s ease;
+}
+
+.win-btn:hover {
+    background: linear-gradient(180deg, #ffffff 0%, #dbeafe 100%);
+    border-color: #60a5fa;
+    box-shadow: 0 0 6px rgba(59, 130, 246, 0.6);
+}
+
+.win-btn.win-close:hover {
+    background: linear-gradient(180deg, #f87171 0%, #dc2626 100%);
+    color: #ffffff;
+    border-color: #b91c1c;
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.8);
+}
+
+.window-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.win-resize-handle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 14px;
+    height: 14px;
+    cursor: se-resize;
+    z-index: 10;
+}
+
+/* Widown 7 Taskbar */
+#taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 42px;
+    background: var(--win7-taskbar-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255, 255, 255, 0.2) inset;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6px;
+    z-index: 9990;
+}
+
+#taskbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.02) 100%);
+    pointer-events: none;
+}
+
+/* Start Button (Windows 7 Orb) */
+.start-button-orb {
+    width: 48px;
+    height: 48px;
+    margin-top: -6px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #569bd8 0%, #1e5799 60%, #0d2c54 100%);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 0 12px rgba(0, 160, 255, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    z-index: 10;
+}
+
+.start-button-orb:hover, .start-button-orb.active {
+    box-shadow: 0 0 18px rgba(0, 200, 255, 0.95), 0 2px 10px rgba(0, 0, 0, 0.7);
+    filter: brightness(1.2);
+    transform: scale(1.05);
+}
+
+.orb-inner-icon {
+    font-size: 22px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.7));
+}
+
+.taskbar-left-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 100%;
+}
+
+.taskbar-apps {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 100%;
+}
+
+.taskbar-item, .pinned-task-btn {
+    height: 34px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.taskbar-item:hover, .pinned-task-btn:hover {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(100, 200, 255, 0.6);
+    box-shadow: 0 0 10px rgba(0, 180, 255, 0.4) inset;
+}
+
+.taskbar-item.active {
+    background: linear-gradient(180deg, rgba(80, 160, 240, 0.5) 0%, rgba(20, 80, 150, 0.6) 100%);
+    border-color: rgba(150, 220, 255, 0.8);
+    box-shadow: 0 0 12px rgba(0, 180, 255, 0.7);
+}
+
+/* System Tray */
+.taskbar-system-tray {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 10px;
+    height: 32px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #e2e8f0;
+    font-size: 12px;
+}
+
+.tray-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+}
+
+.tray-badge.money { color: #4ade80; }
+.tray-badge.sp { color: #38bdf8; }
+
+.taskbar-clock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 11px;
+    line-height: 1.2;
+    padding: 2px 6px;
+    border-radius: 4px;
+    cursor: default;
+    user-select: none;
+}
+.taskbar-clock:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+.clock-time {
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+.clock-date {
+    font-size: 10px;
+    color: #cbd5e1;
+}
+
+/* Start Menu */
+#start-menu {
+    position: fixed;
+    bottom: 44px;
+    left: 8px;
+    width: 380px;
+    height: 460px;
+    background: rgba(24, 40, 65, 0.94);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+    display: none;
+    flex-direction: column;
+    z-index: 9995;
+    overflow: hidden;
+    animation: startMenuOpen 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#start-menu.open {
+    display: flex;
+}
+
+@keyframes startMenuOpen {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.start-menu-body {
+    flex: 1;
+    display: flex;
+    background: #ffffff;
+    margin: 4px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.start-left-pane {
+    flex: 1.2;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: #ffffff;
+}
+
+.start-right-pane {
+    flex: 1;
+    padding: 10px;
+    background: #e9f1f9;
+    border-left: 1px solid #d0e0f0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.start-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #1e293b;
+    transition: background 0.15s ease;
+}
+
+.start-menu-item:hover {
+    background: linear-gradient(180deg, #dbeafe 0%, #bfdbfe 100%);
+    color: #1e40af;
+}
+
+.start-menu-footer {
+    height: 44px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(15, 25, 40, 0.6);
+}
+
+.start-search-box {
+    flex: 1;
+    margin-right: 12px;
+}
+
+.start-search-box input {
+    width: 100%;
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 12px;
+    outline: none;
+}

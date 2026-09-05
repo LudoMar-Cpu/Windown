@@ -1,0 +1,96 @@
+/* Widown 11 Fluent / Mica Theme Overrides */
+
+body.os-widown-11 #desktop {
+    background: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat !important;
+}
+
+body.os-widown-11 #taskbar {
+    background: rgba(32, 32, 32, 0.75) !important;
+    backdrop-filter: blur(30px) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+    justify-content: center;
+    position: fixed;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    min-width: 480px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+    padding: 0 14px;
+}
+
+body.os-widown-11 .taskbar-left-group {
+    justify-content: center;
+}
+
+body.os-widown-11 .start-button-orb {
+    width: 36px;
+    height: 36px;
+    margin-top: 0;
+    border-radius: 6px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+body.os-widown-11 .start-button-orb:hover {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: none;
+}
+
+body.os-widown-11 .taskbar-item, body.os-widown-11 .pinned-task-btn {
+    border-radius: 6px;
+    background: transparent;
+    border: none;
+}
+
+body.os-widown-11 .taskbar-item:hover, body.os-widown-11 .pinned-task-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: none;
+}
+
+body.os-widown-11 .taskbar-item.active {
+    background: rgba(255, 255, 255, 0.18) !important;
+    border-bottom: 3px solid #38bdf8 !important;
+    box-shadow: none;
+}
+
+body.os-widown-11 .widown-window.aero-glass {
+    background: rgba(30, 30, 30, 0.85) !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6) !important;
+    color: #ffffff;
+}
+
+body.os-widown-11 .window-titlebar {
+    background: rgba(40, 40, 40, 0.9) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+body.os-widown-11 .window-title {
+    color: #f1f5f9 !important;
+    text-shadow: none !important;
+}
+
+body.os-widown-11 .win-btn {
+    background: transparent;
+    border: none;
+    color: #cccccc;
+    box-shadow: none;
+    border-radius: 4px;
+}
+
+body.os-widown-11 .win-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+body.os-widown-11 #start-menu {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    bottom: 58px !important;
+    border-radius: 12px !important;
+    background: rgba(32, 32, 32, 0.92) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}

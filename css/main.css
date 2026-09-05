@@ -1,0 +1,346 @@
+/* Widown OS - Core Styles & Design Tokens */
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Fira+Code:wght@400;500;600&display=swap');
+
+:root {
+    --font-ui: 'Segoe UI', -apple-system, BlinkMacSystemFont, Tahoma, sans-serif;
+    --font-mono: 'Fira Code', Consolas, 'Courier New', monospace;
+    
+    /* Aero Theme (Widown 7) */
+    --aero-glass-bg: rgba(220, 235, 252, 0.45);
+    --aero-glass-border: rgba(255, 255, 255, 0.65);
+    --aero-glass-blur: blur(14px);
+    --aero-glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.4) inset;
+    
+    --win7-blue: #235882;
+    --win7-glow: rgba(0, 180, 255, 0.6);
+    --win7-taskbar-bg: linear-gradient(180deg, rgba(30, 60, 90, 0.7) 0%, rgba(10, 25, 45, 0.85) 100%);
+    
+    --color-primary: #1976d2;
+    --color-success: #2e7d32;
+    --color-danger: #d32f2f;
+    --color-warning: #ed6c02;
+    
+    --text-primary: #1a202c;
+    --text-secondary: #4a5568;
+    --text-light: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: var(--text-primary);
+    background-color: #0b1d3a;
+}
+
+/* Boot Screen */
+#boot-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000000;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    transition: opacity 0.8s ease;
+}
+
+#boot-screen.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.boot-logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.start-boot-btn {
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(180deg, #3878b4 0%, #1a4a75 100%);
+    border: 1px solid #73b2e8;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 140, 255, 0.4);
+    transition: all 0.2s ease;
+}
+
+.start-boot-btn:hover {
+    background: linear-gradient(180deg, #4b92d6 0%, #235e94 100%);
+    box-shadow: 0 6px 20px rgba(0, 140, 255, 0.7);
+    transform: translateY(-2px);
+}
+
+.boot-orbs {
+    display: flex;
+    gap: 12px;
+}
+
+.orb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    animation: orbPulse 1.8s infinite alternate ease-in-out;
+}
+
+.orb-red { background: #e74c3c; box-shadow: 0 0 15px #e74c3c; animation-delay: 0s; }
+.orb-green { background: #2ecc71; box-shadow: 0 0 15px #2ecc71; animation-delay: 0.2s; }
+.orb-blue { background: #3498db; box-shadow: 0 0 15px #3498db; animation-delay: 0.4s; }
+.orb-yellow { background: #f1c40f; box-shadow: 0 0 15px #f1c40f; animation-delay: 0.6s; }
+
+@keyframes orbPulse {
+    0% { transform: scale(0.6) translateY(0); opacity: 0.4; }
+    100% { transform: scale(1.3) translateY(-10px); opacity: 1; filter: brightness(1.4); }
+}
+
+.boot-text {
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: #cbd5e0;
+}
+
+/* Desktop Background */
+#desktop {
+    width: 100vw;
+    height: calc(100vh - 42px);
+    position: relative;
+    background: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+    overflow: hidden;
+}
+
+/* Desktop Icons Grid */
+.desktop-icons-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 14px;
+    padding: 16px;
+    height: 100%;
+}
+
+.desktop-icon {
+    width: 82px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6px 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background 0.15s ease, border 0.15s ease;
+}
+
+.desktop-icon:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 8px rgba(0, 180, 255, 0.3);
+}
+
+.desktop-icon.selected {
+    background: rgba(50, 140, 220, 0.35);
+    border-color: rgba(100, 190, 255, 0.7);
+}
+
+.icon-img {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5));
+}
+
+.icon-label {
+    margin-top: 5px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #ffffff;
+    text-shadow: 0 1px 3px #000000, 0 1px 2px #000000;
+    text-align: center;
+    line-height: 1.2;
+    word-break: break-word;
+}
+
+/* Notification Tray */
+#notification-tray {
+    position: fixed;
+    bottom: 50px;
+    right: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.widown-toast {
+    width: 320px;
+    background: rgba(24, 40, 65, 0.88);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    padding: 12px 14px;
+    pointer-events: auto;
+    animation: toastSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.widown-toast.fade-out {
+    opacity: 0;
+    transform: translateX(40px);
+}
+
+@keyframes toastSlideIn {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.toast-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 13px;
+}
+
+.toast-body {
+    font-size: 12px;
+    color: #e2e8f0;
+    line-height: 1.4;
+}
+
+.toast-close {
+    background: none;
+    border: none;
+    color: #cbd5e0;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.toast-close:hover { color: #ffffff; }
+
+/* Modals */
+.widown-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.widown-modal-box {
+    width: 480px;
+    background: #eef4fb;
+    border-radius: 8px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    border: 1px solid #ffffff;
+    overflow: hidden;
+    animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPop {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-header {
+    padding: 12px 16px;
+    background: linear-gradient(180deg, #ebf3fc 0%, #d4e5f7 100%);
+    border-bottom: 1px solid #b8d2eb;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.modal-content {
+    padding: 20px 18px;
+    font-size: 13px;
+    color: #2d3748;
+    line-height: 1.5;
+}
+
+.modal-footer {
+    padding: 12px 16px;
+    background: #f0f4f9;
+    border-top: 1px solid #dce4ee;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* General Buttons */
+.widown-btn {
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 4px;
+    border: 1px solid #94a3b8;
+    background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+    color: #1e293b;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: all 0.15s ease;
+}
+
+.widown-btn:hover {
+    background: linear-gradient(180deg, #ffffff 0%, #e8f0fe 100%);
+    border-color: #3b82f6;
+    box-shadow: 0 0 6px rgba(59, 130, 246, 0.4);
+}
+
+.widown-btn.btn-primary {
+    background: linear-gradient(180deg, #3b82f6 0%, #1d4ed8 100%);
+    color: #ffffff;
+    border-color: #1e40af;
+}
+
+.widown-btn.btn-primary:hover {
+    background: linear-gradient(180deg, #60a5fa 0%, #2563eb 100%);
+}
+
+.widown-btn.btn-success {
+    background: linear-gradient(180deg, #22c55e 0%, #15803d 100%);
+    color: #ffffff;
+    border-color: #166534;
+}
+
+.widown-btn.btn-danger {
+    background: linear-gradient(180deg, #ef4444 0%, #b91c1c 100%);
+    color: #ffffff;
+    border-color: #991b1b;
+}
+
+.widown-btn.btn-large {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+}

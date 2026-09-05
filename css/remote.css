@@ -1,0 +1,281 @@
+/* Clean Layout for AnyWidown Terminal & Contract System */
+
+.anywidown-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #0f172a;
+    color: #ffffff;
+}
+
+.anywidown-toolbar {
+    height: 44px;
+    background: #1e293b;
+    border-bottom: 1px solid #334155;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    flex-shrink: 0;
+}
+
+.anywidown-main-layout {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+    height: calc(100% - 44px);
+}
+
+.clients-sidebar {
+    width: 260px;
+    background: #111827;
+    border-right: 1px solid #1f2937;
+    padding: 10px;
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+.remote-content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #000000;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Warning when no contract is accepted yet */
+.no-contract-warning {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    padding: 30px;
+    background: #0a0f1d;
+}
+
+.active-contract-banner {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Connection Form */
+.connection-form-box {
+    padding: 20px;
+    background: #0a0f1d;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    overflow-y: auto;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    max-width: 520px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #cbd5e1;
+}
+
+.form-group input {
+    background: #1e293b;
+    border: 1px solid #475569;
+    border-radius: 4px;
+    padding: 8px 12px;
+    color: #ffffff;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+}
+
+/* Terminal Shell */
+.remote-shell-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #050811;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.shell-header-bar {
+    height: 38px;
+    background: #1e293b;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #e2e8f0;
+    border-bottom: 1px solid #334155;
+    flex-shrink: 0;
+}
+
+.remote-shell-output {
+    flex: 1;
+    padding: 14px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    overflow-y: auto;
+    color: #f1f5f9;
+    line-height: 1.6;
+    background: #030712;
+}
+
+.remote-shell-input-line {
+    height: 42px;
+    background: #0f172a;
+    border-top: 1px solid #1f2937;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    flex-shrink: 0;
+}
+
+.shell-prompt {
+    color: #4ade80;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 8px;
+    white-space: nowrap;
+}
+
+.shell-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-family: var(--font-mono);
+    font-size: 13px;
+}
+
+.shell-history-line {
+    margin: 4px 0;
+    line-height: 1.4;
+}
+
+/* Mail Badges in Outlock */
+.mail-badge {
+    font-size: 9px;
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin-left: 6px;
+    font-weight: bold;
+}
+
+.mail-badge.pending { background: #fef08a; color: #854d0e; }
+.mail-badge.active { background: #bae6fd; color: #0369a1; }
+.mail-badge.done { background: #bbf7d0; color: #166534; }
+
+/* Desktop and Taskbar Badges */
+.desktop-icon {
+    position: relative;
+}
+
+.icon-unread-badge {
+    position: absolute;
+    top: 2px;
+    right: 12px;
+    background: #ef4444;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: bold;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    border: 1px solid #ffffff;
+    animation: badgePulse 2s infinite;
+}
+
+.taskbar-unread-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: #ef4444;
+    color: #ffffff;
+    font-size: 9px;
+    font-weight: bold;
+    min-width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    border: 1px solid #ffffff;
+}
+
+.pinned-task-btn {
+    position: relative;
+}
+
+@keyframes badgePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+/* Protocol Tabs */
+.connect-protocol-tabs {
+    display: flex;
+    gap: 6px;
+}
+
+.proto-tab {
+    padding: 5px 14px;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 4px;
+    color: #94a3b8;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.proto-tab.active {
+    background: #0284c7;
+    color: #ffffff;
+    border-color: #38bdf8;
+}
+
+.proto-tab.locked {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.client-quick-card.active {
+    border-color: #38bdf8;
+    background: rgba(56, 189, 248, 0.15);
+}

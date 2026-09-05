@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widown OS - Simulation & Développeur Freelance</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/aero.css">
+    <link rel="stylesheet" href="css/apps.css">
+    <link rel="stylesheet" href="css/remote.css">
+    <link rel="stylesheet" href="css/fluent.css">
+</head>
+<body class="os-widown-7">
+
+    <!-- Boot Screen Simulation -->
+    <div id="boot-screen">
+        <div class="boot-logo-container">
+            <button class="start-boot-btn" id="start-boot-btn">▶ Démarrer Widown OS</button>
+            <div id="boot-animation-box" style="display:none; flex-direction:column; align-items:center; gap:24px;">
+                <div class="boot-orbs">
+                    <div class="orb orb-red"></div>
+                    <div class="orb orb-green"></div>
+                    <div class="orb orb-blue"></div>
+                    <div class="orb orb-yellow"></div>
+                </div>
+                <div class="boot-text">Démarrage de Widown 7...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Desktop Area -->
+    <main id="desktop">
+        <!-- Desktop Shortcuts -->
+        <div class="desktop-icons-container" id="desktop-icons">
+            <div class="desktop-icon" data-app="codestud" title="CodeStud - IDE Typon">
+                <div class="icon-img">💻</div>
+                <span class="icon-label">CodeStud</span>
+            </div>
+
+            <div class="desktop-icon" data-app="outlock" title="Outlock - Messagerie & Contrats">
+                <div class="icon-img">✉️</div>
+                <span class="icon-label">Outlock</span>
+            </div>
+
+            <div class="desktop-icon" data-app="browser" title="Logol Lhome - Navigateur Web">
+                <div class="icon-img">🌐</div>
+                <span class="icon-label">Logol Lhome</span>
+            </div>
+
+            <div class="desktop-icon" data-app="thetree" title="TheTree.xey - Arbre Technologique">
+                <div class="icon-img">🌳</div>
+                <span class="icon-label">TheTree.xey</span>
+            </div>
+
+            <div class="desktop-icon" data-app="anywidown" title="AnyWidown - Bureau à Distance">
+                <div class="icon-img">🖥️</div>
+                <span class="icon-label">AnyWidown</span>
+            </div>
+
+            <div class="desktop-icon" data-app="explorer" title="Mes Documents">
+                <div class="icon-img">📁</div>
+                <span class="icon-label">Documents</span>
+            </div>
+
+            <div class="desktop-icon" data-app="cmd" title="Invite de commandes">
+                <div class="icon-img">⬛</div>
+                <span class="icon-label">cmd.xey</span>
+            </div>
+
+            <div class="desktop-icon" data-app="pilewilla" title="PileWilla - Transfert PTF/SPTF & VPS">
+                <div class="icon-img">⚡</div>
+                <span class="icon-label">PileWilla</span>
+            </div>
+
+            <div class="desktop-icon" data-app="netsim" title="NetSim - Simulateur Réseau & Vidéosurveillance">
+                <div class="icon-img">🌐</div>
+                <span class="icon-label">NetSim.xey</span>
+            </div>
+
+            <div class="desktop-icon" data-app="socialnet" title="SocialNet - Lumina, Vanish, Loopr, NexusWall">
+                <div class="icon-img">📱</div>
+                <span class="icon-label">SocialNet</span>
+            </div>
+
+            <div class="desktop-icon" data-app="store" title="Widown Store - Applications & SDKs">
+                <div class="icon-img">🛍️</div>
+                <span class="icon-label">Widown Store</span>
+            </div>
+
+            <div class="desktop-icon" data-app="myaistudio" title="MyAI Studio 11 - Génération Neuronale & Datacenters">
+                <div class="icon-img">🧠</div>
+                <span class="icon-label">MyAI Studio</span>
+            </div>
+
+            <div class="desktop-icon" data-app="darkhacker" title="Calis Black Suite - Dark Web, OSINT, VoIP & RAT">
+                <div class="icon-img">💀</div>
+                <span class="icon-label">Calis Suite</span>
+            </div>
+
+            <div class="desktop-icon" data-app="investhub" title="InvestHub Pro - Économie, Matériel, Locaux & WidCoin">
+                <div class="icon-img">💰</div>
+                <span class="icon-label">InvestHub</span>
+            </div>
+
+            <div class="desktop-icon" data-app="cyberdefense" title="CyberDefense.xey - Pare-feu, Détection d'Intrusions & IA">
+                <div class="icon-img">🛡️</div>
+                <span class="icon-label">CyberDefense</span>
+            </div>
+
+            <div class="desktop-icon" data-app="secreport" title="Windown Security Report - Bug Bounty Windown Companie (100 000 €)">
+                <div class="icon-img">🏆</div>
+                <span class="icon-label">SecReport</span>
+            </div>
+
+            <div class="desktop-icon" data-app="vmmanager" title="VirtualWidown.xey - Hyperviseur & Machines Virtuelles">
+                <div class="icon-img">🖥️</div>
+                <span class="icon-label">VirtualWidown</span>
+            </div>
+        </div>
+
+        <!-- Notification Toast Tray -->
+        <div id="notification-tray"></div>
+
+        <!-- Clipper Assistant -->
+        <div id="clipper-container"></div>
+    </main>
+
+    <!-- Start Menu -->
+    <aside id="start-menu">
+        <div class="start-menu-body">
+            <div class="start-left-pane">
+                <div class="start-menu-item" data-app="codestud">
+                    <span>💻</span> <strong>CodeStud 2024</strong>
+                </div>
+                <div class="start-menu-item" data-app="outlock">
+                    <span>✉️</span> <strong>Outlock Messagerie</strong>
+                </div>
+                <div class="start-menu-item" data-app="browser">
+                    <span>🌐</span> <strong>Logol Lhome Web</strong>
+                </div>
+                <div class="start-menu-item" data-app="thetree">
+                    <span>🌳</span> <strong>TheTree.xey</strong>
+                </div>
+                <div class="start-menu-item" data-app="anywidown">
+                    <span>🖥️</span> <strong>AnyWidown Bureau Distant</strong>
+                </div>
+                <div class="start-menu-item" data-app="cmd">
+                    <span>⬛</span> <strong>Invite de commandes</strong>
+                </div>
+            </div>
+            <div class="start-right-pane">
+                <div class="start-menu-item" data-app="explorer">
+                    <span>📁</span> <span>Documents</span>
+                </div>
+                <div class="start-menu-item" data-app="thetree">
+                    <span>⚡</span> <span>Compétences</span>
+                </div>
+                <div class="start-menu-item" data-app="upgrade-os">
+                    <span>🔄</span> <span>Widown Update</span>
+                </div>
+            </div>
+        </div>
+        <div class="start-menu-footer">
+            <div class="start-search-box">
+                <input type="text" placeholder="Rechercher les programmes et fichiers...">
+            </div>
+            <button class="widown-btn btn-sm" id="btn-reboot" onclick="location.reload()">Arrêter</button>
+        </div>
+    </aside>
+
+    <!-- Taskbar -->
+    <footer id="taskbar">
+        <div class="taskbar-left-group">
+            <div class="start-button-orb" id="start-button" title="Démarrer">
+                <span class="orb-inner-icon">🪟</span>
+            </div>
+
+            <!-- Pinned Quick Apps -->
+            <button class="pinned-task-btn" data-app="explorer" title="Explorateur de fichiers">📁</button>
+            <button class="pinned-task-btn" data-app="browser" title="Logol Lhome">🌐</button>
+            <button class="pinned-task-btn" data-app="codestud" title="CodeStud">💻</button>
+            <button class="pinned-task-btn" data-app="outlock" title="Outlock">✉️</button>
+
+            <!-- Active Open Windows -->
+            <div class="taskbar-apps" id="taskbar-apps"></div>
+        </div>
+
+        <!-- System Tray -->
+        <div class="taskbar-system-tray">
+            <div class="tray-badge money" title="Crédits du Joueur">
+                <span>💰</span> <span id="tray-money">50 €</span>
+            </div>
+            <div class="tray-badge sp" title="Points de Compétence">
+                <span>⚡</span> <span id="tray-sp">0 SP</span>
+            </div>
+            <div class="taskbar-clock" id="taskbar-clock">12:00</div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/audio.js"></script>
+    <script src="js/vfs.js"></script>
+    <script src="js/interpreter.js"></script>
+    <script src="js/gameEngine.js"></script>
+    <script src="js/windowManager.js"></script>
+    <script src="js/apps/codestud.js"></script>
+    <script src="js/apps/outlock.js"></script>
+    <script src="js/apps/logol.js"></script>
+    <script src="js/apps/thetree.js"></script>
+    <script src="js/apps/anywidown.js"></script>
+    <script src="js/apps/explorer.js"></script>
+    <script src="js/apps/terminal.js"></script>
+    <script src="js/apps/clipper.js"></script>
+    <script src="js/apps/ftnwork.js"></script>
+    <script src="js/apps/pilewilla.js"></script>
+    <script src="js/apps/netsim.js"></script>
+    <script src="js/apps/socialnet.js"></script>
+    <script src="js/apps/store.js"></script>
+    <script src="js/apps/myaistudio.js"></script>
+    <script src="js/apps/darkhacker.js"></script>
+    <script src="js/apps/firewall_puzzle.js"></script>
+    <script src="js/apps/securityreport.js"></script>
+    <script src="js/apps/investhub.js"></script>
+    <script src="js/apps/vmmanager.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
